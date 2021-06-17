@@ -39,13 +39,7 @@
 
         <button class="btn btn-primary btn-block"(click)="onSubmit()">submit</button>
 
-        <div class="py-4">
-          <div class="list-item"
-              *ngFor="let item of items; let i = index;">
-            <p>{{ item }}</p>
-            <button class="btn btn-danger ml-auto"(click)="remove(i)">remove</button>
-          </div>
-        </div>
+        <app-list [appItems]=items (removeItemIndexEvent)='removeItem($event)'></app-list>
 
 
       </div>

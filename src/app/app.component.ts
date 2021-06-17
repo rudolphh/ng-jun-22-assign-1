@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,28 +7,12 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 })
 export class AppComponent {
 
-  input1 : string = '';
-  input2 : string = '';
-  input3 : string = '';
+  public input1 : string = '';
+  public input2 : string = '';
+  public input3 : string = '';
+  public items : string[] = [];
 
-  items : string[] = [];
-
-
-  @ViewChild('div') div !: ElementRef;
-
-  constructor(private renderer: Renderer2) {}
-
-  ngOnInit() {
-
-  }
-
-  addElement() {
-    const ul: HTMLUListElement = this.renderer.createElement('ul');
-    ul.innerHTML = `<li>${this.input1}</li>`;
-    ul.innerHTML += `<li>${this.input2}</li>`;
-    ul.innerHTML += `<li>${this.input3}</li>`;
-    this.renderer.appendChild(this.div.nativeElement, ul)
-  }
+  constructor() {}
 
   onSubmit() {
     this.items.push(this.input1);
@@ -36,10 +20,7 @@ export class AppComponent {
     this.items.push(this.input3);
   }
 
-  remove(index: number) {
+  removeItem(index: number) {
     this.items.splice(index, 1);
-    console.log(this.items);
   }
-
-
 }
