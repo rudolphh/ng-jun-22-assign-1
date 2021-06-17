@@ -1,6 +1,6 @@
 <div class="py-4">
   <div class="list-item" *ngFor="let item of items; let i = index; trackBy: trackByFn">
-    <input type="text" [value]='items[i]' class="form-control" />
+    <input type="text" [(ngModel)]='items[i]' class="form-control" />
     <p class="py-3 ml-auto">{{ item }}</p>
     <button class="btn btn-danger ml-auto"(click)="removeItem(i)">remove</button>
   </div>
