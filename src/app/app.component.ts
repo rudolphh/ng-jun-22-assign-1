@@ -15,9 +15,7 @@ export class AppComponent {
   constructor() {}
 
   onSubmit() {
-    this.items.push(this.input1);
-    this.items.push(this.input2);
-    this.items.push(this.input3);
+    this.items.push(this.input1, this.input2, this.input3);
   }
 
   removeItem(index: number) {
